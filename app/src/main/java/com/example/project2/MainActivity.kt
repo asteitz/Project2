@@ -1,4 +1,4 @@
-package com.example.calculator
+package com.example.project2
 
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +9,7 @@ import java.lang.Math.abs
 import java.math.BigInteger
 import java.util.*
 class MainActivity : AppCompatActivity() {
-// Jacob Fritz and Ashley Steitz making a change
+// Jacob Fritz and Ashley Steitz
 
     @SuppressLint("SetTextI18n")
     // creating stacks that are used when we create an instance of the button and set the stacks used for the operators and values
@@ -495,8 +495,7 @@ class MainActivity : AppCompatActivity() {
 
             // takes the last calculated item and pushes to stack
             compuStack.push(calculatedVar)
-            if (lastClicked == "=") {
-            } else {
+            if (lastClicked != "=") {
                 // if stack is empty then we display this value
                 if (compuStack.isEmpty()) {
                     textView.text = calculatedVar.toString()
@@ -508,16 +507,15 @@ class MainActivity : AppCompatActivity() {
                 }
                 // now we make a list to store all values in this stack
                 else {
-                    var compuList = mutableListOf<String>()
+                    val compuList = mutableListOf<String>()
                     while (!compuStack.isEmpty() || !operStack.isEmpty()) {
                         // we keep popping items and checking if they are numbers or symbols
-                        var num = compuStack.pop()
+                        val num = compuStack.pop()
                         if (!operStack.isEmpty()) {
                             val oper = operStack.pop()
                             compuList.add(num.toString())
                             compuList.add(oper)
-                        }
-                        else {
+                        } else {
                             compuList.add(num.toString())
                         }
                     }
@@ -593,8 +591,7 @@ class MainActivity : AppCompatActivity() {
                                         compuList.subList(indexS - 1, indexS + 2).clear()
                                         compuList.add(indexS - 1, value.toString())
                                     }
-                                }
-                                else {
+                                } else {
                                     var value =
                                         compuList[indexA - 1].toDouble() + compuList[indexA + 1].toDouble()
                                     compuList.subList(indexA - 1, indexA + 2).clear()
@@ -609,6 +606,7 @@ class MainActivity : AppCompatActivity() {
                             }
                         }
                     }
+
                     // to get the value to calculate we start with a double in-case of a decimal value being computed (or division / %)
                     calculatedVar = compuList[0].toDouble()
 
