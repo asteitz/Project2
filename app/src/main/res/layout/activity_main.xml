@@ -77,6 +77,16 @@
             android:layout_margin="2dp"
             android:text="/"
             android:textSize="30sp"/>
+
+        <Button
+            android:id="@+id/buttonSin"
+            style="@style/buttonSymbol"
+            app:cornerRadius = "3dp"
+            android:layout_margin="2dp"
+            android:text="Sin"
+            android:textAllCaps="false"
+            android:textSize="30sp"/>
+
     </LinearLayout>
 
     <!--  Same Process is followed as defined above   -->
@@ -119,6 +129,14 @@
             android:layout_margin="2dp"
             android:text="X"
             android:textSize="30sp"/>
+        <Button
+            android:id="@+id/buttonCos"
+            style="@style/buttonSymbol"
+            app:cornerRadius = "3dp"
+            android:layout_margin="2dp"
+            android:text="Sin"
+            android:textAllCaps="false"
+            android:textSize="30sp"/>
     </LinearLayout>
 
     <LinearLayout style="@style/buttonRow">
@@ -155,6 +173,14 @@
             app:cornerRadius = "3dp"
             android:text="-"
             android:textSize="30sp"/>
+        <Button
+            android:id="@+id/buttonTan"
+            style="@style/buttonSymbol"
+            app:cornerRadius = "3dp"
+            android:layout_margin="2dp"
+            android:text="Tan"
+            android:textAllCaps="false"
+            android:textSize="30sp"/>
     </LinearLayout>
 
     <LinearLayout style="@style/buttonRow">
@@ -190,6 +216,14 @@
             android:layout_margin="2dp"
             android:text="+"
             android:textSize="30sp"/>
+        <Button
+            android:id="@+id/buttonLog10"
+            style="@style/buttonSymbol"
+            app:cornerRadius = "3dp"
+            android:layout_margin="2dp"
+            android:text="Log 10"
+            android:textAllCaps="false"
+            android:textSize="30sp"/>
     </LinearLayout>
 
     <!-- Linear Layout can stay consistent due to the constraints put in on the width following the parent's width :
@@ -198,7 +232,7 @@
      -->
     <LinearLayout
         style="@style/buttonRow"
-        android:weightSum = "2"
+        android:weightSum = "5"
         >
 
         <!-- this will be the LEFT button seen in the BOTTOM row-->
@@ -209,7 +243,7 @@
             app:cornerRadius = "3dp"
             android:layout_margin="2dp"
             android:text="0"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:textSize="30sp"/>
 
 
@@ -220,7 +254,7 @@
             style="@style/buttonSymbol"
             android:layout_margin="2dp"
             app:cornerRadius = "3dp"
-            android:layout_weight="0.5"
+            android:layout_weight="1"
             android:text="."
             android:textSize="30sp"/>
 
@@ -231,8 +265,17 @@
             style="@style/buttonSymbol"
             android:layout_margin="2dp"
             app:cornerRadius = "3dp"
-            android:layout_weight="0.5"
+            android:layout_weight="1"
             android:text="="
+            android:textSize="30sp"/>
+        <Button
+            android:id="@+id/buttonln"
+            style="@style/buttonSymbol"
+            app:cornerRadius = "3dp"
+            android:layout_margin="2dp"
+            android:text="Sin"
+            android:textAllCaps="false"
+            android:layout_weight="1"
             android:textSize="30sp"/>
 
         <!--   Closing Tags     -->

@@ -8,6 +8,7 @@ import com.example.project2.R
 import java.lang.Math.abs
 import java.math.BigInteger
 import java.util.*
+import android.util.Log;
 class MainActivity : AppCompatActivity() {
 // Jacob Fritz and Ashley Steitz
 
@@ -45,6 +46,7 @@ class MainActivity : AppCompatActivity() {
                 // lastClicked is now 0
                 lastClicked = toAdd
             }
+            Log.d("Calculator", "Button0 Pressed")
         }
 
         // same process is followed for Button 1  as Button 0
@@ -64,6 +66,7 @@ class MainActivity : AppCompatActivity() {
                 calculatedVar = "$cur$toAdd".toDouble()
                 lastClicked = toAdd
             }
+            Log.d("Calculator", "Button1 Pressed")
         }
         // same process is followed for Button 2  as Button 0
         val button2 = findViewById<Button>(R.id.button2)
@@ -81,6 +84,7 @@ class MainActivity : AppCompatActivity() {
                 calculatedVar = "$cur$toAdd".toDouble()
                 lastClicked = toAdd
             }
+            Log.d("Calculator", "Button2 Pressed")
         }
         // same process is followed for Button 3 as Button 0
         val button3 = findViewById<Button>(R.id.button3)
@@ -98,6 +102,7 @@ class MainActivity : AppCompatActivity() {
                 calculatedVar = "$cur$toAdd".toDouble()
                 lastClicked = toAdd
             }
+            Log.d("Calculator", "Button3 Pressed")
         }
         // same process is followed for Button 4  as Button 0
         val button4 = findViewById<Button>(R.id.button4)
@@ -115,6 +120,7 @@ class MainActivity : AppCompatActivity() {
                 calculatedVar = "$cur$toAdd".toDouble()
                 lastClicked = toAdd
             }
+            Log.d("Calculator", "Button4 Pressed")
         }
         // same process is followed for Button 5  as Button 0
         val button5 = findViewById<Button>(R.id.button5)
@@ -132,6 +138,7 @@ class MainActivity : AppCompatActivity() {
                 calculatedVar = "$cur$toAdd".toDouble()
                 lastClicked = toAdd
             }
+            Log.d("Calculator", "Button5 Pressed")
         }
         // same process is followed for Button 6  as Button 0
         val button6 = findViewById<Button>(R.id.button6)
@@ -149,6 +156,7 @@ class MainActivity : AppCompatActivity() {
                 calculatedVar = "$cur$toAdd".toDouble()
                 lastClicked = toAdd
             }
+            Log.d("Calculator", "Button6 Pressed")
         }
         // same process is followed for Button 7  as Button 0
         val button7 = findViewById<Button>(R.id.button7)
@@ -166,6 +174,7 @@ class MainActivity : AppCompatActivity() {
                 calculatedVar = "$cur$toAdd".toDouble()
                 lastClicked = toAdd
             }
+            Log.d("Calculator", "Button7 Pressed")
         }
         // same process is followed for Button 8  as Button 0
         val button8 = findViewById<Button>(R.id.button8)
@@ -183,6 +192,7 @@ class MainActivity : AppCompatActivity() {
                 calculatedVar = "$cur$toAdd".toDouble()
                 lastClicked = toAdd
             }
+            Log.d("Calculator", "Button8 Pressed")
         }
         // same process is followed for Button 9  as Button 0
         val button9 = findViewById<Button>(R.id.button9)
@@ -200,6 +210,7 @@ class MainActivity : AppCompatActivity() {
                 calculatedVar = "$cur$toAdd".toDouble()
                 lastClicked = toAdd
             }
+            Log.d("Calculator", "Button9 Pressed")
         }
         // for C we take the last item and store it in-case the user mis-enters the content and wanted to only clear the value
         val buttonC = findViewById<Button>(R.id.buttonC)
@@ -222,6 +233,7 @@ class MainActivity : AppCompatActivity() {
             while (!currCompStack.isEmpty()){
                 currCompStack.pop()
             }
+            Log.d("Calculator", "ButtonC Pressed")
             lastClicked = "C"
         }
         // This is when the last value pressed was an OPERATOR
@@ -279,6 +291,7 @@ class MainActivity : AppCompatActivity() {
                 operStack.push("+")
                 lastClicked = "+"
             }
+            Log.d("Calculator", "Button+ Pressed")
         }
         // this process is the same as the "+" operation
         val buttonSubtract = findViewById<Button>(R.id.buttonSubtract)
@@ -327,6 +340,7 @@ class MainActivity : AppCompatActivity() {
                 operStack.push("-")
                 lastClicked = "-"
             }
+            Log.d("Calculator", "Button- Pressed")
         }
 
         // this process is the same as the "+" operation
@@ -376,6 +390,7 @@ class MainActivity : AppCompatActivity() {
                 currOperStack.push("*")
                 lastClicked = "*"
             }
+            Log.d("Calculator", "Button* Pressed")
         }
         // this process is the same as the "+" operation
         val buttonDivide = findViewById<Button>(R.id.buttonDivide)
@@ -424,6 +439,7 @@ class MainActivity : AppCompatActivity() {
                 currOperStack.push("/")
                 lastClicked = "/"
             }
+            Log.d("Calculator", "Button/ Pressed")
         }
         // this process takes the current value and converts it into a string
         val buttonDecimal = findViewById<Button>(R.id.buttonDecimal)
@@ -442,6 +458,7 @@ class MainActivity : AppCompatActivity() {
             textView.text = "$cur$toAdd"
             calculatedVar = "$cur$toAdd$zero".toDouble()
             lastClicked = "."
+            Log.d("Calculator", "Button. Pressed")
         }
 
         // this button takes the value and multiplies it by (-1) then converts it back into a string for the textViw
@@ -474,6 +491,7 @@ class MainActivity : AppCompatActivity() {
                 textView.text.toString().toDouble()
             }
             lastClicked = "N"
+            Log.d("Calculator", "Button+/- Pressed")
         }
         /*
             The bulk of this logic comes from taking a stack approach and needing to load into an array
@@ -630,6 +648,7 @@ class MainActivity : AppCompatActivity() {
 
                 }
                 lastClicked = "="
+                Log.d("Calculator", "Button= Pressed")
             }
         }
 //        when clicked takes the value and divides it by 100 and displays it into the mainText  -> set's last clicked button to the %
@@ -641,7 +660,30 @@ class MainActivity : AppCompatActivity() {
             textView.text = lastNum.toString()
             calculatedVar = lastNum
             lastClicked = "%"
+            Log.d("Calculator", "Button% Pressed")
 
         }
+
+//        val buttonSin = findViewById<Button>(R.id.buttonSin)
+//        buttonSin.setOnClickListener{
+//
+//        }
+//
+//        val buttonsCos = findViewById<Button>(R.id.buttonCos)
+//        buttonCos.setOnClickListener{
+//
+//        }
+//        val buttonsTan = findViewById<Button>(R.id.buttonTan)
+//        buttonTan.setOnClickListener{
+//
+//        }
+//        val buttonsLog10 = findViewById<Button>(R.id.buttonLog10)
+//        buttonLog10.setOnClickListener{
+//
+//        }
+//        val buttonln = findViewById<Button>(R.id.buttonln)
+//        buttonln.setOnClickListener{
+//
+//        }
     }
 }
