@@ -9,22 +9,55 @@ import java.lang.Math.abs
 import java.math.BigInteger
 import java.util.*
 import android.util.Log;
+import kotlin.collections.ArrayList
+
 class MainActivity : AppCompatActivity() {
+    var calculatedVar = 0.0                // used to compute the value
+    var compuStack = ArrayDeque<Double>() // set as double in case a decimal is included
+    var operStack = ArrayDeque<String>() // set as string because operators are stored as a str "+","-",etc.
+    var lastClicked = ""                // used for tracking the last value entered to see if the number is part of a larger number or start of an opr.
+    var currCompStack = ArrayDeque<Double>()
+    var currOperStack = ArrayDeque<String>()
 // Jacob Fritz and Ashley Steitz
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        var calculatedVar = calculatedVar             // used to compute the value
+        val compuStack = compuStack.toDoubleArray() // set as double in case a decimal is included
+        val operStack = ArrayList(operStack) // set as string because operators are stored as a str "+","-",etc.
+        var lastClicked = lastClicked             // used for tracking the last value entered to see if the number is part of a larger number or start of an opr.
+        val currCompStack = currCompStack.toDoubleArray()
+        val currOperStack = ArrayList(currOperStack)
+        outState.putDouble("cv", calculatedVar)
+        outState.putDoubleArray("cs", compuStack)
+        outState.putStringArrayList("os", operStack)
+        outState.putString("lc", lastClicked)
+        outState.putDoubleArray("ccs", currCompStack)
+        outState.putStringArrayList("cos",currOperStack)
+        val textView = findViewById<TextView>(R.id.mainText)
+        outState.putString("mt", textView.text.toString())
+
+    }
 
     @SuppressLint("SetTextI18n")
     // creating stacks that are used when we create an instance of the button and set the stacks used for the operators and values
     override fun onCreate(savedInstanceState: Bundle?) {
+        if(savedInstanceState != null){
+            calculatedVar = savedInstanceState.getDouble("cv")
+            compuStack = ArrayDeque<Double>(savedInstanceState.getDoubleArray("cs")!!.toCollection(ArrayList()))
+            operStack = savedInstanceState.getStringArrayList("cs")?.let { ArrayDeque<String>(it) }!!
+            lastClicked = savedInstanceState.getString("lc").toString()
+            currCompStack = ArrayDeque<Double>(savedInstanceState.getDoubleArray("ccs")!!.toCollection(ArrayList()))
+            currOperStack = savedInstanceState.getStringArrayList("cos")?.let { ArrayDeque<String>(it) }!!
+            val pulledText = savedInstanceState.getString("mt")
+            val textView = findViewById<TextView>(R.id.mainText)
+            textView.text = pulledText
 
+        }
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main)  // uses the layout from the activity_main.xml file
-        var calculatedVar = 0.0                // used to compute the value
-        val compuStack = ArrayDeque<Double>() // set as double in case a decimal is included
-        val operStack = ArrayDeque<String>() // set as string because operators are stored as a str "+","-",etc.
-        var lastClicked = ""                // used for tracking the last value entered to see if the number is part of a larger number or start of an opr.
-        val currCompStack = ArrayDeque<Double>()
-        val currOperStack = ArrayDeque<String>()
+
         // when the 0 button is clicked
         val button0 = findViewById<Button>(R.id.button0)
         button0.setOnClickListener {
