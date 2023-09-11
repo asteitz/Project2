@@ -697,26 +697,59 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-//        val buttonSin = findViewById<Button>(R.id.buttonSin)
-//        buttonSin.setOnClickListener{
-//
-//        }
-//
-//        val buttonsCos = findViewById<Button>(R.id.buttonCos)
-//        buttonCos.setOnClickListener{
-//
-//        }
-//        val buttonsTan = findViewById<Button>(R.id.buttonTan)
-//        buttonTan.setOnClickListener{
-//
-//        }
-//        val buttonsLog10 = findViewById<Button>(R.id.buttonLog10)
-//        buttonLog10.setOnClickListener{
-//
-//        }
-//        val buttonln = findViewById<Button>(R.id.buttonln)
-//        buttonln.setOnClickListener{
-//
-//        }
+        val buttonSin = findViewById<Button>(R.id.buttonSin)
+        buttonSin.setOnClickListener{
+            val textView = findViewById<TextView>(R.id.mainText)
+            var lastNum = calculatedVar
+            lastNum = kotlin.math.sin(lastNum)
+            textView.text = lastNum.toString()
+            calculatedVar = lastNum
+            lastClicked = "Sin"
+            Log.d("Calculator", "ButtonSin Pressed")
+        }
+
+        val buttonCos = findViewById<Button>(R.id.buttonCos)
+        buttonCos.setOnClickListener{
+            val textView = findViewById<TextView>(R.id.mainText)
+            var lastNum = calculatedVar
+            lastNum = kotlin.math.cos(lastNum)
+            textView.text = lastNum.toString()
+            calculatedVar = lastNum
+            lastClicked = "Sin"
+            Log.d("Calculator", "ButtonCos Pressed")
+        }
+        val buttonTan = findViewById<Button>(R.id.buttonTan)
+        buttonTan.setOnClickListener{
+            val textView = findViewById<TextView>(R.id.mainText)
+            var lastNum = calculatedVar
+            lastNum = kotlin.math.cos(lastNum)
+            textView.text = lastNum.toString()
+            calculatedVar = lastNum
+            lastClicked = "Tan"
+            Log.d("Calculator", "ButtonTan Pressed")
+
+        }
+        val buttonLog10 = findViewById<Button>(R.id.buttonLog10)
+        buttonLog10.setOnClickListener{
+            val textView = findViewById<TextView>(R.id.mainText)
+            var lastNum = calculatedVar
+            lastNum = kotlin.math.log10(lastNum)
+            textView.text = lastNum.toString()
+            calculatedVar = lastNum
+            lastClicked = "Log10"
+            Log.d("Calculator", "ButtonLog10 Pressed")
+
+        }
+        val buttonln = findViewById<Button>(R.id.buttonln)
+        buttonln.setOnClickListener{
+            val textView = findViewById<TextView>(R.id.mainText)
+            var lastNum = calculatedVar
+            lastNum = kotlin.math.ln(lastNum)
+            textView.text = lastNum.toString()
+            calculatedVar = lastNum
+            lastClicked = "ln"
+            Log.d("Calculator", "Buttonln Pressed")
+
+        }
     }
 }
